@@ -1,0 +1,66 @@
+---
+import Layout from '../layouts/Layout.astro'
+import Studio from '../components/Studio.tsx'
+---
+
+<Layout>
+  <section class="hero">
+    <p class="eyebrow">color.oriz.in · a museum of color</p>
+    <h1 class="hero__title">Color studio</h1>
+    <p class="hero__lede">
+      Pick, convert, harmonize, gradient, check contrast, and lift a palette
+      straight out of any image. Big swatches, honest numbers, oklch-smooth
+      blends. Everything runs in your browser — nothing is uploaded.
+    </p>
+    <ul class="hero__spec">
+      <li>hex · rgb · hsl · oklch</li>
+      <li>WCAG 2.1 AA / AAA</li>
+      <li>no upload · no signup</li>
+    </ul>
+  </section>
+
+  <Studio client:load />
+</Layout>
+
+<style>
+  .hero {
+    padding: 1rem 0 2.5rem;
+    max-width: 46rem;
+  }
+  .hero__title {
+    font-size: clamp(2.75rem, 8vw, 5rem);
+    margin: 0.5rem 0 0.9rem;
+  }
+  .hero__lede {
+    font-size: 1.1rem;
+    color: var(--oz-fg);
+    margin: 0 0 1.25rem;
+    max-width: 40rem;
+  }
+  .hero__spec {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.25rem;
+    padding: 0;
+    margin: 0;
+    font-family: var(--oz-font-mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.06em;
+    color: var(--gc-label);
+  }
+  .hero__spec li {
+    position: relative;
+    padding-left: 1rem;
+  }
+  .hero__spec li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.5em;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--gc-tick);
+  }
+</style>

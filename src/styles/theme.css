@@ -1,0 +1,132 @@
+:root {
+  /* ===== Gallery / chromatic identity =====
+     Museum-white chrome so the COLORS are the hero. Near-black ink,
+     paper-white ground, a single restrained ink-blue accent. Big swatches,
+     generous whitespace, refined grotesk. Disciplined neutrality = the look. */
+
+  /* color roles (contract override) */
+  --oz-bg: #fbfbfa;         /* gallery paper white, faint warm */
+  --oz-fg: #14140f;         /* near-black ink */
+  --oz-surface: #ffffff;    /* pure-white raised card */
+  --oz-muted: #6b6b64;      /* wall-label grey */
+  --oz-border: #e6e5e0;     /* hairline */
+  --oz-accent: #1a1a17;     /* ink (interactive = ink, not color — colors are content) */
+  --oz-accent-fg: #fbfbfa;
+
+  /* chrome aliases (oz-chrome/styles.css reads these) */
+  --oz-paper: #fbfbfa;
+  --oz-paper-2: #f4f3f0;
+  --oz-ink: #14140f;
+  --oz-ink-mute: #6b6b64;
+  --oz-rule: #e6e5e0;
+  --oz-header-h: 4rem;
+  --oz-container: 80rem;
+  --oz-text-lg: 1.4rem;
+  --oz-text-md: 1rem;
+  --oz-text-sm: 0.875rem;
+  --oz-space-5: 1.25rem;
+  --oz-z-overlay: 1000;
+
+  /* bespoke tokens */
+  --gc-plinth: #ffffff;
+  --gc-well: #f4f3f0;
+  --gc-hair: #e6e5e0;
+  --gc-hair-strong: #d5d4cd;
+  --gc-label: #6b6b64;
+  --gc-ink: #14140f;
+  --gc-tick: #1a56ff;       /* single chromatic spark: signage blue */
+  --gc-shadow: 0 1px 2px rgba(20, 20, 15, 0.04), 0 8px 24px rgba(20, 20, 15, 0.06);
+  --gc-shadow-lift: 0 2px 6px rgba(20, 20, 15, 0.06), 0 18px 48px rgba(20, 20, 15, 0.1);
+
+  /* font slots */
+  --oz-font-display: 'Space Grotesk Variable', 'Space Grotesk', system-ui, sans-serif;
+  --oz-font-body: 'Inter Variable', 'Inter', system-ui, sans-serif;
+  --oz-font-mono: ui-monospace, 'SFMono-Regular', Menlo, monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* gallery after-hours: charcoal walls, spotlit swatches */
+    --oz-bg: #100f0d;
+    --oz-fg: #f0efe9;
+    --oz-surface: #17161300;
+    --oz-muted: #9a988f;
+    --oz-border: #2a2825;
+    --oz-accent: #f0efe9;
+    --oz-accent-fg: #100f0d;
+
+    --oz-paper: #100f0d;
+    --oz-paper-2: #16150f;
+    --oz-ink: #f0efe9;
+    --oz-ink-mute: #9a988f;
+    --oz-rule: #2a2825;
+
+    --gc-plinth: #1b1a16;
+    --gc-well: #16150f;
+    --gc-hair: #2a2825;
+    --gc-hair-strong: #3a3833;
+    --gc-label: #9a988f;
+    --gc-ink: #f0efe9;
+    --gc-tick: #6f95ff;
+    --gc-shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 8px 24px rgba(0, 0, 0, 0.5);
+    --gc-shadow-lift: 0 2px 6px rgba(0, 0, 0, 0.45), 0 18px 48px rgba(0, 0, 0, 0.6);
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: light dark;
+  background: var(--oz-bg);
+}
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+  background: var(--oz-bg);
+  color: var(--oz-fg);
+  font-family: var(--oz-font-body);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3 {
+  font-family: var(--oz-font-display);
+  letter-spacing: -0.02em;
+  line-height: 1.02;
+  margin: 0;
+  font-weight: 600;
+}
+
+a {
+  color: inherit;
+}
+
+::selection {
+  background: var(--gc-tick);
+  color: #fff;
+}
+
+:focus-visible {
+  outline: 2px solid var(--gc-tick);
+  outline-offset: 2px;
+  border-radius: var(--oz-radius-s);
+}
+
+.wrap {
+  max-width: var(--oz-container);
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+/* museum wall-label eyebrow */
+.eyebrow {
+  font-family: var(--oz-font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gc-label);
+}
