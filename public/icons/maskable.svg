@@ -1,8 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-  <rect width="512" height="512" fill="#fbfbfa"/>
-  <g style="mix-blend-mode:multiply" transform="translate(256 256) scale(0.62) translate(-256 -256)">
-    <circle cx="205" cy="205" r="112" fill="#1a56ff"/>
-    <circle cx="336" cy="248" r="112" fill="#ff4d6d" opacity="0.9"/>
-    <circle cx="248" cy="336" r="112" fill="#ffd000" opacity="0.9"/>
-  </g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><rect width="512" height="512" fill="#fbfbfa"/><g style="mix-blend-mode:multiply" transform="translate(256 256) scale(0.62) translate(-256 -256)"><circle cx="205" cy="205" r="112" fill="#1a56ff"/><circle cx="336" cy="248" r="112" fill="#ff4d6d" opacity=".9"/><circle cx="248" cy="336" r="112" fill="#ffd000" opacity=".9"/></g></svg>
