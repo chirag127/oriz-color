@@ -31,10 +31,16 @@ const canonical = new URL(Astro.url.pathname, Astro.site).href
     <meta property="og:url" content={canonical} />
     <meta name="twitter:card" content="summary" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <meta name="theme-color" content="#1a56ff" />
+    <link rel="apple-touch-icon" href="/icons/icon-192.png" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Color" />
+    <script is:inline src="/registerSW.js"></script>
     <meta name="generator" content={Astro.generator} />
   </head>
   <body>
-    <OzToolShell site="color" title="color studio">
+    <OzToolShell site="color" title="color studio" themeColor="#1a56ff">
       <slot />
       <Fragment slot="footer">
         <a href="https://github.com/chirag127/oriz-color">source</a>
