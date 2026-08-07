@@ -9,12 +9,33 @@ import OzToolShell from '@chirag127/oz-chrome/components/OzToolShell.astro'
 interface Props {
   title?: string
   description?: string
+  image?: string
 }
 const {
-  title = 'oriz color — color studio',
-  description = 'Color studio: picker, palette + gradient generator, WCAG contrast checker, extract palette from image, convert hex / rgb / hsl / oklch. 100% in your browser — no upload, no signup.',
+  title = 'oriz Color — free color picker, palette, gradient & contrast tools (no signup)',
+  description = 'Free online color studio: pick colors, build palettes & gradients, check WCAG contrast, extract a palette from any image, and convert hex / rgb / hsl / oklch. 100% in your browser — no upload, no signup.',
+  image = '/screenshots/desktop.png',
 } = Astro.props
 const canonical = new URL(Astro.url.pathname, Astro.site).href
+const ogImage = new URL(image, Astro.site).href
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: 'oriz Color',
+  url: 'https://color.oriz.in',
+  description,
+  applicationCategory: 'DesignApplication',
+  operatingSystem: 'Web',
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+  featureList: [
+    'Color picker',
+    'Palette generator (color harmony + tint/shade ramp)',
+    'Gradient generator',
+    'WCAG contrast checker',
+    'Extract palette from image',
+    'Convert hex / rgb / hsl / oklch',
+  ],
+}
 ---
 
 <!doctype html>
@@ -29,7 +50,12 @@ const canonical = new URL(Astro.url.pathname, Astro.site).href
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonical} />
-    <meta name="twitter:card" content="summary" />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:site_name" content="oriz Color" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="manifest" href="/manifest.webmanifest" />
     <meta name="theme-color" content="#1a56ff" />
@@ -38,6 +64,11 @@ const canonical = new URL(Astro.url.pathname, Astro.site).href
     <meta name="apple-mobile-web-app-title" content="Color" />
     <script is:inline src="/registerSW.js"></script>
     <meta name="generator" content={Astro.generator} />
+    <script
+      type="application/ld+json"
+      is:inline
+      set:html={JSON.stringify(jsonLd)}
+    />
   </head>
   <body>
     <OzToolShell site="color" title="color studio" themeColor="#1a56ff">
