@@ -1,0 +1,93 @@
+# oriz Color
+
+Color studio — a museum of color at https://color.oriz.in
+
+Pick, convert, harmonize, gradient, check contrast, and lift a palette straight out of any image. Big swatches, honest numbers, oklch-smooth blends. Everything runs in your browser — nothing is uploaded, nothing is stored on a server, and no signup is required.
+
+100% client-side. No upload, no signup, no server. Images never leave your device — extraction runs on a local canvas. AI palette suggestions are optional polish; the core tools work with AI fully offline.
+
+## Pick + Convert
+
+Native color picker with live conversion across hex, rgb, hsl, and oklch. Copy any format with one click. The picker uses the OS-native color chooser, and every representation updates in sync as you move — so you can read the same color as `#1a56ff`, `rgb(26, 86, 255)`, `hsl(228, 100%, 55%)`, or `oklch(...)` at once.
+
+## Palettes
+
+Generate color-harmony schemes from any base color:
+
+- Complementary
+- Analogous
+- Triadic
+- Tetradic
+- Split-complementary
+- Monochromatic
+- Shades
+- A tint/shade ramp (light-to-dark steps)
+
+Optional AI mode: describe a brand or mood in words and get a suggested palette. AI is optional polish — every harmony scheme is computed locally with color math and works with AI turned off.
+
+## Gradient
+
+Multi-stop gradient builder:
+
+- Add and reposition multiple color stops
+- Angle control for linear gradients
+- Interpolate in oklch, oklab, hsl, or srgb color spaces (oklch gives the smoothest, most perceptually even blends)
+- Export ready-to-paste CSS
+- Read sampled stops along the gradient
+
+## Contrast
+
+WCAG 2.1 contrast checker:
+
+- Computes the contrast ratio between a foreground and background color
+- Reports AA and AAA passes for normal text and large text
+- Reports the UI 3:1 pass for non-text/interactive elements
+- Live text preview on the chosen background
+- One-click swap of foreground and background
+
+## Extract
+
+Pull a palette out of any image:
+
+- Drag-and-drop or pick an image file
+- Choose how many dominant colors to quantize (3 to 12)
+- Copy any extracted color in your preferred format
+
+Extraction runs entirely on a local HTML canvas in your browser. Images are never uploaded — they never leave your device.
+
+## How it works
+
+oriz Color is a static site with interactive React islands. Color math is powered by the culori library. The optional AI palette feature uses g4f (GPT4Free) directly from the browser through the shared `@chirag127/oz-ai` package, so there is no API key and no server round-trip you control. Heavy libraries are lazy-imported only when a feature is actually used, keeping the initial load light.
+
+The app is a PWA — installable to your device and usable offline for the core (non-AI) tools.
+
+## FAQ
+
+Is it free? Yes. Free, no signup, no account.
+
+Are my images uploaded? No. Image palette extraction runs on a local canvas in your browser; the file never leaves your device.
+
+Do I need an account or API key? No. The core tools are fully client-side. The optional AI palette suggestion uses a keyless in-browser provider.
+
+Does it work offline? The core tools (pick, convert, palettes, gradient, contrast, extract) work offline once installed as a PWA. AI palette suggestions need a network connection.
+
+What color spaces are supported? hex, rgb, hsl, and oklch for conversion; oklch, oklab, hsl, and srgb for gradient interpolation.
+
+## Tech
+
+- Astro (static output)
+- React 19 islands
+- Tailwind CSS v4
+- culori for color math
+- Shared atomic `@chirag127/oz-*` packages: chrome, tokens, AI (g4f), file helpers
+- @vite-pwa/astro for PWA / offline
+- Deployed on Cloudflare Pages
+
+## Links
+
+- Live app: https://color.oriz.in
+- Info page: https://chirag127.github.io/oriz-color/
+- Source (MIT): https://github.com/chirag127/oriz-color
+- LLM index: https://color.oriz.in/llms.txt
+
+MIT © 2026 Chirag Singhal

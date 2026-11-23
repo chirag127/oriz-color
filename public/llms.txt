@@ -1,0 +1,21 @@
+# oriz Color
+
+> Free, 100% client-side color studio at https://color.oriz.in — pick colors, build palettes and gradients, check WCAG contrast, and extract a palette from any image. No upload, no signup, no server; images never leave your device.
+
+## Tools
+
+- [Pick + Convert](https://color.oriz.in): native color picker with live conversion across hex, rgb, hsl, and oklch; copy any format.
+- [Palettes](https://color.oriz.in): color-harmony schemes (complementary, analogous, triadic, tetradic, split-complementary, monochromatic) plus shades and a tint/shade ramp; optional AI "describe a brand → palette".
+- [Gradient](https://color.oriz.in): multi-stop gradient builder with angle control, oklch/oklab/hsl/srgb interpolation, CSS export, and sampled stops.
+- [Contrast](https://color.oriz.in): WCAG 2.1 contrast ratio with AA/AAA (normal + large) and UI 3:1 pass matrix, live preview, and swap.
+- [Extract](https://color.oriz.in): drag-drop or pick an image and quantize its dominant colors (3–12) locally on a canvas; copy any.
+
+## About
+
+- [Full text (LLM-friendly)](https://color.oriz.in/llms-full.txt): complete site content as clean markdown.
+- [Info page](https://chirag127.github.io/oriz-color/): what oriz Color is, features, and tech.
+- [Source](https://github.com/chirag127/oriz-color): MIT-licensed source on GitHub.
+
+## Tech
+
+Astro static site + React 19 islands + Tailwind v4; color math via culori; optional AI via g4f (keyless, in-browser); PWA-installable. Everything runs in the browser — no upload, no signup, no server.
