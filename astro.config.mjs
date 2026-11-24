@@ -2,7 +2,7 @@
 import { defineConfig } from 'astro/config'
 import react from '@astrojs/react'
 import sitemap from '@astrojs/sitemap'
-import VitePWA from '@vite-pwa/astro'
+import { AstroPWAIntegration } from '@vite-pwa/astro'
 import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
@@ -11,7 +11,7 @@ export default defineConfig({
   integrations: [
     react(),
     sitemap(),
-    VitePWA({
+    AstroPWAIntegration({
       registerType: 'autoUpdate',
       injectRegister: 'auto',
       includeAssets: ['favicon.svg', 'robots.txt', 'icons/*.png', 'icons/*.svg'],
@@ -42,7 +42,7 @@ export default defineConfig({
           { src: '/screenshots/mobile.png', sizes: '390x844', type: 'image/png', label: 'oriz Color studio on mobile' },
         ],
       },
-      workbox: {
+      generateSW: {
         globPatterns: ['**/*.{js,css,html,svg,png,ico,webmanifest,woff2}'],
         navigateFallback: '/',
         runtimeCaching: [
