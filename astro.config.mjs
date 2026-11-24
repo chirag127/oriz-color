@@ -14,7 +14,7 @@ export default defineConfig({
     AstroPWAIntegration({
       registerType: 'autoUpdate',
       injectRegister: 'auto',
-      includeAssets: ['favicon.svg', 'robots.txt', 'icons/*.png', 'icons/*.svg'],
+      includeAssets: ['favicon.svg', 'robots.txt', 'icons/icon-192.png', 'icons/icon-256.png', 'icons/icon-384.png', 'icons/icon-512.png', 'icons/icon.svg', 'icons/maskable-512.png', 'icons/maskable.svg'],
       manifest: {
         name: 'oriz Color',
         short_name: 'Color',
